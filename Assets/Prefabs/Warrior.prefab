@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3356845427241098494}
   - component: {fileID: 2233196979515771757}
   - component: {fileID: 2620657504481469444}
+  - component: {fileID: -2643224791408387249}
+  - component: {fileID: 3535943191375706403}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -116,5 +118,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d718ae394053cd4fa6a4e7d66a688bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField: 100
+  <Speed>k__BackingField: 4
+--- !u!114 &-2643224791408387249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690867858947924090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f479331bbebc54b85e8d544110ab7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases: []
+--- !u!114 &3535943191375706403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690867858947924090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb4b84ff14fd2a449cc9b2bd89475fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

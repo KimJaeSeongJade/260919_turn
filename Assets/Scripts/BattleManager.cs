@@ -8,11 +8,97 @@ public class BattleManager : MonoBehaviour
     
     private List<Unit> _playerUnits = new List<Unit>();
     private List<Unit> _monsterUnits = new List<Unit>();
+
+    private static BattleManager _instance;
+    public static BattleManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<BattleManager>();
+            }
+            return _instance;
+        }
+    }
+
+    private void Awake() => SetSingleton();
     
-    private void Start() => Init();
-    
-    
-    
+    private void Start()
+    {
+        Init();
+        StartCoroutine(TurnRoutine());
+    }
+    private void OnDestroy() => _instance = null;
+
+    public void Attack(Unit unit)
+    {
+        unit.TakeDamage(10);
+    }
+
+    public void Die(Unit unit)
+    {
+        if (_playerUnits.Contains(unit))
+        {
+            _playerUnits.Remove(unit);
+        }
+        if (_monsterUnits.Contains(unit))
+        {
+            _monsterUnits.Remove(unit);
+        }
+
+        Destroy(unit.gameObject);
+    }
+
+    // 배틀 플로우(루틴)
+    private IEnumerator TurnRoutine()
+    {
+        while (_playerUnits.Count > 0 && _monsterUnits.Count > 0)
+        {
+            List<Unit> units = GetRunningList();
+            int index = 0;
+        
+            while(units.Count > 0)
+            {
+                float maxSpeed = float.MinValue;
+                for (int i = 0; i < units.Count; i++)
+                {
+                    if (units[i] == null) continue;
+                    
+                    if (maxSpeed < units[i].Speed)
+                    {
+                        index = i;
+                        maxSpeed = units[i].Speed;
+                    }
+                }
+            
+                BattleModule currentModule = units[index].GetComponent<BattleModule>();
+                units.RemoveAt(index);
+                currentModule.ResetPhases();
+            
+                yield return StartCoroutine(currentModule.PhasesRoutine());
+                yield return new WaitForSeconds(2f);
+            }
+        }
+    }
+
+    private List<Unit> GetRunningList()
+    {
+        List<Unit> list = new List<Unit>();
+        
+        foreach (Unit unit in _playerUnits)
+        {
+            list.Add(unit);
+        }
+        foreach (Unit unit in _monsterUnits)
+        {
+            list.Add(unit);
+        }
+        
+        return list;
+    }
+
+
     private void Init()
     {
         foreach (Unit unit in GameManager.Instance.PlayerParty)
@@ -35,6 +121,18 @@ public class BattleManager : MonoBehaviour
         {
             // 3, 4, 5
             _monsterUnits[i].transform.position = _spawnPoints[i + 3].position;
+        }
+    }
+    
+    private void SetSingleton()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
         }
     }
 }

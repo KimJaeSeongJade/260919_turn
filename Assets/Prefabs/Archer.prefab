@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4118454097283205213}
   - component: {fileID: 4320413089221973295}
   - component: {fileID: 7972636335828222120}
+  - component: {fileID: 608595085152156710}
+  - component: {fileID: -3101148424776119102}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -116,5 +118,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d718ae394053cd4fa6a4e7d66a688bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField: 100
+  <Speed>k__BackingField: 5
+--- !u!114 &608595085152156710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327432938235723321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f479331bbebc54b85e8d544110ab7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases: []
+--- !u!114 &-3101148424776119102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327432938235723321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb4b84ff14fd2a449cc9b2bd89475fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

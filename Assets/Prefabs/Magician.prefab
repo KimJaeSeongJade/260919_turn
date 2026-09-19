@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5428757995822505624}
   - component: {fileID: 7212633317868041086}
   - component: {fileID: 3104643479896627247}
+  - component: {fileID: 7841445983048686988}
+  - component: {fileID: -220112203018072911}
   m_Layer: 0
   m_Name: Magician
   m_TagString: Untagged
@@ -116,5 +118,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d718ae394053cd4fa6a4e7d66a688bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField: 100
+  <Speed>k__BackingField: 2
+--- !u!114 &7841445983048686988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882377955534569658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f479331bbebc54b85e8d544110ab7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phases: []
+--- !u!114 &-220112203018072911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882377955534569658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb4b84ff14fd2a449cc9b2bd89475fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
