@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b80844ed81a6e34c88844f006d3908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerParty>k__BackingField: []
+  <MonsterParty>k__BackingField: []
 --- !u!4 &45405773
 Transform:
   m_ObjectHideFlags: 0
@@ -315,7 +317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d109737d464cf3e43a2adcdab8fd80e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Units>k__BackingField: []
+  <Units>k__BackingField:
+  - {fileID: -631776242649250241, guid: 65e828e0dae2b834a9272527866eadfd, type: 3}
+  - {fileID: 8576395081922395977, guid: 95044fcec4a1bc04fbb441fa5ae88062, type: 3}
+  - {fileID: -631776242649250241, guid: 65e828e0dae2b834a9272527866eadfd, type: 3}
 --- !u!114 &393831132
 MonoBehaviour:
   m_ObjectHideFlags: 0

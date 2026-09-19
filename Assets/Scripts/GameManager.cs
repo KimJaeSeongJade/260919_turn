@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
+    [field: SerializeField] public Unit[] PlayerParty { get; private set; }
+    [field: SerializeField] public Unit[] MonsterParty { get; private set; }
+
     public static GameManager Instance
     {
         get
@@ -32,6 +35,12 @@ public class GameManager : MonoBehaviour
     public void StartBattle()
     {
         SceneManager.LoadScene("BattleScene");
+    }
+
+    public void SetBattleData(Party playerParty, Party monsterParty)
+    {
+        PlayerParty = playerParty.Units;
+        MonsterParty = monsterParty.Units;
     }
 
     private void SetSingleton()
