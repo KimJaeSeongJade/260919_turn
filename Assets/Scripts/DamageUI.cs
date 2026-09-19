@@ -4,24 +4,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
+using Unity.VisualScripting;
 
-public class DamageUI : MonoBehaviour
+public class DamageUI : MonoBehaviour, IPoolable
 {
     [SerializeField] private Vector3 _maxForce;
+    [SerializeField] private float _returnDelay;
     
+    private WaitForSeconds _returnDelayWait;
     private Rigidbody _rigidbody;
     private Camera _camera;
     private TextMeshProUGUI _tmp;
 
-    private void Awake() => CacheComponents();
-    private void OnEnable() => AddRandomForce();
+    public Transform Tr { get => transform; }
+
+    private void Awake()
+    {
+        CacheComponents();
+        Init();
+    }
+
+    private void OnEnable()
+    {
+        AddRandomForce();
+        StartCoroutine(ReturnRoutine());
+    }
+
     private void LateUpdate() => SetRotate();
 
     // 일정시간 이후 풀로 반납(비활성화)
-    
+    private IEnumerator ReturnRoutine()
+    {
+        yield return _returnDelayWait;
+        Return();
+    }
+
+    public void Return()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void SetData(int value)
     {
         _tmp.text = value.ToString();
+    }
+
+    private void Init()
+    {
+        _returnDelayWait = new WaitForSeconds(_returnDelay);
     }
 
     private void SetRotate()
@@ -46,7 +76,7 @@ public class DamageUI : MonoBehaviour
     private void CacheComponents()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _tmp = GetComponent<TextMeshProUGUI>();
+        _tmp = GetComponentInChildren<TextMeshProUGUI>();
         _camera = Camera.main;
     }
 }
