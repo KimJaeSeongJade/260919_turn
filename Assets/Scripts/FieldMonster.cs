@@ -9,8 +9,14 @@ public class FieldMonster : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // 배틀 진입.
-            Debug.Log(other.name);
+            GameManager.Instance.StartBattle();
         }
     }
 }
+
+
+
+
+
+
+
