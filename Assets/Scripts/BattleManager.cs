@@ -59,10 +59,13 @@ public class BattleManager : MonoBehaviour
         while (_playerUnits.Count > 0 && _monsterUnits.Count > 0)
         {
             List<Unit> units = GetRunningList();
-            int index = 0;
+            
         
             while(units.Count > 0)
             {
+                // index 안쪽으로 이동
+                int index = 0;
+                
                 float maxSpeed = float.MinValue;
                 for (int i = 0; i < units.Count; i++)
                 {
@@ -75,6 +78,13 @@ public class BattleManager : MonoBehaviour
                     }
                 }
             
+                // 여기서 null일 수도 있음
+                if (units[index] == null)
+                {
+                    units.RemoveAt(index);
+                    continue;
+                }
+                
                 BattleModule currentModule = units[index].GetComponent<BattleModule>();
                 units.RemoveAt(index);
                 currentModule.ResetPhases();
