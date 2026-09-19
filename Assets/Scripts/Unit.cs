@@ -10,7 +10,14 @@ public class Unit : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        IPoolable poolable = UIPool.Instance.Take();
 
+        if (poolable is DamageUI ui)
+        {
+            ui.SetData(damage);
+            ui.Tr.position = transform.position;
+        }
+        
         if (Health <= 0)
         {
             BattleManager.Instance.Die(this);

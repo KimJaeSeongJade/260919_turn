@@ -41,6 +41,7 @@ public class UIPool : MonoBehaviour
             {
                 poolable = _pool[i];
                 poolable.Tr.gameObject.SetActive(true);
+                break;
             }
         }
         
@@ -54,6 +55,7 @@ public class UIPool : MonoBehaviour
         for (int i = 0; i < _pool.Length; i++)
         {
             _pool[i] = Instantiate(_uiPrefab).GetComponent<IPoolable>();
+            _pool[i].Tr.gameObject.SetActive(false);
         }
     }
 
