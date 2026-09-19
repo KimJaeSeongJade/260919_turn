@@ -8,6 +8,9 @@ public class BattleManager : MonoBehaviour
     
     private List<Unit> _playerUnits = new List<Unit>();
     private List<Unit> _monsterUnits = new List<Unit>();
+    
+    // 추가
+    public List<Unit> PlayerUnits => _playerUnits;
 
     private static BattleManager _instance;
     public static BattleManager Instance

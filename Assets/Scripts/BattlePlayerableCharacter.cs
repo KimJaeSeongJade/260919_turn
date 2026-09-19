@@ -42,6 +42,7 @@ public class BattlePlayerableCharacter : MonoBehaviour
     {
         BattleManager.Instance.Attack(_targetMonster);
         _damagePhase.IsFinished = true;
+        Debug.Log($"{gameObject.name} : {_targetMonster.name}를 공격");
     }
 
     private void SelectMonster()
@@ -50,10 +51,11 @@ public class BattlePlayerableCharacter : MonoBehaviour
         
         Unit unit = PlayerInput.Instance.GetUnit();
         
-
         if (unit == null) return;
-        Debug.Log("--");
+        
         _targetMonster = unit;
         _playerSelectPhase.IsFinished = true;
+        Debug.Log($"{gameObject.name} : {_targetMonster.name}를 타겟으로 지정");
+        
     }
 }
